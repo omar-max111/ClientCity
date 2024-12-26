@@ -22,15 +22,17 @@ class ClientController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'firstName' => 'required|string|max:255',
-            'lastName' => 'required|string|max:255',
-            'email' => 'required|email|unique:clients',
-            'password' => 'required|string|min:6',
-            'city_id' => 'required|exists:cities,id',
-        ]);
-
-        Client::create($request->all());
+      
+        //ADD THE CODE IN THIS PLACE
+        $client = new Client;
+        $client->firstName = $request->input('firstName');
+        $client->lastName = $request->input('lastName');
+        $client->email = $request->input('email');
+        $client->password = $request->input('password');
+        $client->city_id = $request->input('cities');
+        $client->save();
+        
+    
         return redirect()->route('clients.index')->with('success', 'Client created successfully!');
     }
 

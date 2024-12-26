@@ -19,7 +19,7 @@
         </div>
         <div class="mb-3">
             <label for="city_id" class="form-label">City</label>
-            <select class="form-select" id="city_id" name="city_id" required>
+            <select class="form-select" id="city_id" name="cities" required>
                 <option value="" disabled selected>Select City</option>
                 @foreach($cities as $city)
                 <option value="{{ $city->id }}">{{ $city->cityName }}</option>
